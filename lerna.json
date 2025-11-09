@@ -1,9 +1,0 @@
-{
-  "packages": [
-    "packages/*",
-    "packages/providers/*",
-    "samples/*"
-  ],
-  "npmClient": "yarn",
-  "version": "independent"
-}
