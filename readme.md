@@ -1,40 +1,279 @@
 <h1 align="center">
   <a href="#"><img height="120" src="https://github.com/microsoftgraph/microsoft-graph-toolkit/raw/main/assets/graff.png" title="Graff the Giraffe"></a>
   <br>
-  Microsoft Graph Toolkit
+  Graph Toolkit React
 </h1>
 
-<h4 align="center">UI Components and Authentication Providers for <a href="https://graph.microsoft.com">Microsoft Graph</a></h4>
+<h4 align="center">Modern React Components for <a href="https://graph.microsoft.com">Microsoft Graph</a> powered by <a href="https://react.fluentui.dev/">Fluent UI</a></h4>
 
 <p align="center">
-  <a href="https://stackoverflow.com/questions/tagged/microsoft-graph-toolkit" target="_blank" rel="noreferrer noopener"><img src="https://img.shields.io/stackexchange/stackoverflow/t/microsoft-graph-toolkit.svg"></a>
-  <img src="https://github.com/microsoftgraph/microsoft-graph-toolkit/workflows/Build%20CI/badge.svg" /> <a href="https://mgt.dev" target="_blank" rel="noreferrer noopener"><img src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg"></a> <a href="https://github.com/microsoftgraph/microsoft-graph-toolkit/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" target="_blank" rel="noreferrer noopener"><img src="https://img.shields.io/github/issues/microsoftgraph/microsoft-graph-toolkit/good%20first%20issue?color=brightgreen"></a>
+  <img src="https://img.shields.io/badge/alpha-0.1.0-orange" alt="Alpha Release">
+  <img src="https://img.shields.io/badge/React-18.2-blue" alt="React 18.2">
+  <img src="https://img.shields.io/badge/Fluent_UI-9.72-purple" alt="Fluent UI 9">
+  <img src="https://img.shields.io/badge/TypeScript-5.3-blue" alt="TypeScript 5.3">
 </p>
 
-<h3 align="center"><a href="https://aka.ms/mgt/docs" target="_blank" rel="noreferrer noopener">Documentation</a></h3>
+<h3 align="center">
+  <a href="#getting-started">Get Started</a> • 
+  <a href="#storybook">Storybook</a> • 
+  <a href="#contribute">Contribute</a>
+</h3>
 
-<p align="center">
-  The Microsoft Graph Toolkit is a collection of reusable, framework-agnostic components and authentication providers for accessing and working with Microsoft Graph. The components are fully functional right of out of the box, with built in providers that authenticate with and fetch data from Microsoft Graph.
-</p>
+## 🎯 Project Vision
 
-<p align="center">
-  <a href="#packages">Packages</a> • <a href="#components">Components</a> • <a href="#providers">Providers</a> • <a href="#getting-started">Getting Started</a> • <a href="#using-our-samples">Using our samples</a> • <a href="#contribute">Contribute</a> • <a href="#feedback-and-requests">Feedback & Requests</a> <br>• <a href="#license">License</a> • <a href="#code-of-conduct">Code of Conduct</a>
-</p>
+This project reimagines the Microsoft Graph Toolkit as a **modern, React-first component library** built on top of Fluent UI. The goal is to create a focused, maintainable package that leverages the official Microsoft design system while providing seamless integration with Microsoft Graph.
+
+### Key Principles
+
+- **React-First**: Built specifically for React applications, not framework-agnostic web components
+- **Fluent UI Native**: Uses official Fluent UI v9 components instead of custom implementations
+- **Single Package**: One cohesive npm package instead of a complex monorepo
+- **Modern Stack**: TypeScript 5, Vite, Vitest, and Storybook 7
+- **Developer Experience**: Simple API, excellent TypeScript support, comprehensive documentation
+
+### Why This Fork?
+
+The original Microsoft Graph Toolkit is excellent but serves a broader audience with framework-agnostic web components. This fork takes a different approach:
+
+1. **Leverages Fluent UI**: Instead of building custom Avatar/Text components, we use the official `Persona` component from Fluent UI
+2. **Simplified Architecture**: Single package instead of 10+ packages in a Lerna monorepo
+3. **React Optimization**: Components are designed for React's patterns (hooks, context) from the ground up
+4. **Faster Iteration**: Smaller codebase means quicker development and easier maintenance
+
+## 📦 Package
+
+```bash
+npm install @medienstudio/graph-toolkit-react
+```
+
+| Package | Version | Description |
+| ------- | ------- | ----------- |
+| `@medienstudio/graph-toolkit-react` | `0.1.0-alpha.1` | React components for Microsoft Graph powered by Fluent UI |
+
+## 🎨 Components
+
+Currently available in alpha:
+
+### Person Component
+A flexible component for displaying user information from Microsoft Graph.
+
+```tsx
+import { Person } from '@medienstudio/graph-toolkit-react';
+
+<Person 
+  userId="user@contoso.com"
+  view="twoLines"
+  showPresence
+  textAlignment="center"
+  onClick={() => console.log('Clicked!')}
+/>
+```
+
+**Features:**
+- Multiple display modes: avatar-only, one-line, two-lines, three-lines
+- Presence indicators (available, busy, away, etc.)
+- Text alignment and positioning options
+- Custom sizing (small, medium, large, extra-large, or numeric pixels)
+- Click handlers for interactive scenarios
+- Loading states
+- Direct data mode (bypass Graph API)
+
+### Coming Soon
+- **PeoplePicker** - Multi-user selection with search
+- **PersonCard** - Expandable contact card with full profile
+- **Login** - Authentication control with Microsoft identity
+- **FileList** - OneDrive/SharePoint file browsing
+- **And more...**
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+```json
+{
+  "react": "^17.0.0 || ^18.0.0",
+  "react-dom": "^17.0.0 || ^18.0.0",
+  "@fluentui/react-components": "^9.0.0"
+}
+```
+
+### Installation
+
+```bash
+npm install @medienstudio/graph-toolkit-react @fluentui/react-components react react-dom
+```
+
+### Quick Start
+
+```tsx
+import { FluentProvider, webLightTheme } from '@fluentui/react-components';
+import { GraphProvider, MockProvider, Person } from '@medienstudio/graph-toolkit-react';
+
+function App() {
+  const provider = new MockProvider(); // Use MockProvider for development
+  
+  return (
+    <FluentProvider theme={webLightTheme}>
+      <GraphProvider provider={provider}>
+        <Person userId="AdeleV@contoso.com" view="twoLines" showPresence />
+      </GraphProvider>
+    </FluentProvider>
+  );
+}
+```
+
+### Authentication Providers
+
+The library uses a provider pattern for authentication:
+
+- **MockProvider**: Returns mock data (Adele Vance) without API calls - perfect for development
+- **Custom Providers**: Implement `IProvider` interface to integrate with MSAL, Auth0, etc.
+
+```tsx
+import { IProvider, ProviderState } from '@medienstudio/graph-toolkit-react';
+
+class MyAuthProvider implements IProvider {
+  state = ProviderState.SignedOut;
+  
+  async login(): Promise<void> { /* ... */ }
+  async logout(): Promise<void> { /* ... */ }
+  async getAccessToken(): Promise<string> { /* ... */ }
+}
+```
+
+## 📚 Storybook
+
+Explore all components interactively in our Storybook documentation:
+
+**[View Storybook →](#)** _(Deployed to GitHub Pages on every main branch update)_
+
+Run locally:
+```bash
+npm run storybook
+```
+
+## 🛠️ Development
+
+### Tech Stack
+
+- **Build**: Vite 5.1 (ESM + CJS output)
+- **Language**: TypeScript 5.3
+- **Testing**: Vitest 1.3 + Testing Library
+- **Documentation**: Storybook 7.6
+- **UI Framework**: Fluent UI v9 (React Components)
+- **Graph SDK**: @microsoft/microsoft-graph-client 3.0
+
+### Build & Test
+
+```bash
+# Install dependencies
+npm install
+
+# Type check
+npm run type-check
+
+# Lint
+npm run lint
+
+# Build library
+npm run build
+
+# Run tests
+npm run test
+
+# Run Storybook
+npm run storybook
+
+# Build Storybook for deployment
+npm run build-storybook
+```
+
+### Project Structure
+
+```
+src/
+├── components/
+│   └── Person/
+│       ├── Person.tsx          # Component implementation
+│       ├── Person.types.ts     # TypeScript definitions
+│       └── __tests__/          # Component tests
+├── providers/
+│   ├── IProvider.ts            # Provider interface
+│   ├── MockProvider.ts         # Development provider
+│   └── ProviderContext.tsx     # React context
+├── hooks/
+│   ├── useGraphClient.ts       # Graph client hook
+│   ├── usePersonData.ts        # Person data fetching
+│   └── useProvider.ts          # Provider access
+└── index.ts                    # Public API
+
+stories/
+└── Person.stories.tsx          # Storybook stories (19 examples)
+```
+
+## 🎯 Current Status
+
+**Phase 3 Complete** ✅
+
+- ✅ Repository restructured from monorepo to single package
+- ✅ Provider infrastructure with MockProvider for development
+- ✅ Person component using Fluent UI Persona
+- ✅ Full Persona configuration support (textAlignment, textPosition, sizing)
+- ✅ Build system (ESM + CJS + TypeScript declarations)
+- ✅ Storybook documentation with 19 interactive examples
+- ✅ CI/CD with GitHub Actions
+- ✅ Automatic Storybook deployment to GitHub Pages
+
+**Next Steps**:
+- Phase 4: Additional components (PeoplePicker, PersonCard, Login)
+- Production-ready providers (MSAL2, custom integrations)
+- Comprehensive test coverage
+- First stable release (1.0.0)
+
+## 🤝 Contribute
+
+This is an **experimental fork** exploring a React-first approach to Microsoft Graph components. Contributions are welcome!
+
+### Guidelines
+
+1. Follow the existing code style (TypeScript, ESLint, Prettier)
+2. Use Fluent UI components whenever possible
+3. Write tests for new components
+4. Add Storybook stories demonstrating all component features
+5. Update documentation
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## 📝 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit) by Microsoft, which is also MIT licensed.
+
+## 🙏 Acknowledgments
+
+- **Microsoft Graph Toolkit Team**: For the original project and inspiration
+- **Fluent UI Team**: For the excellent React component library
+- **Microsoft Graph**: For the powerful API that makes this all possible
+
+---
+
+**Note**: This is an alpha release under active development. APIs may change. Not recommended for production use yet.
+
+## 🔗 Links
+
+- **Original Project**: [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
+- **Fluent UI**: [react.fluentui.dev](https://react.fluentui.dev/)
+- **Microsoft Graph**: [graph.microsoft.com](https://graph.microsoft.com)
 
 ## Packages
 
-| Package                                                                                                    | Latest                                                                                  | Next                                                                                  |
-| ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [`@microsoft/mgt`](https://www.npmjs.com/package/@microsoft/mgt)                                           | <img src="https://img.shields.io/npm/v/@microsoft/mgt/latest.svg">                      | <img src="https://img.shields.io/npm/v/@microsoft/mgt/next.svg">                      |
-| [`@microsoft/mgt-element`](https://www.npmjs.com/package/@microsoft/mgt-element)                           | <img src="https://img.shields.io/npm/v/@microsoft/mgt-element/latest.svg">              | <img src="https://img.shields.io/npm/v/@microsoft/mgt-element/next.svg">              |
-| [`@microsoft/mgt-components`](https://www.npmjs.com/package/@microsoft/mgt-components)                     | <img src="https://img.shields.io/npm/v/@microsoft/mgt-components/latest.svg">           | <img src="https://img.shields.io/npm/v/@microsoft/mgt-components/next.svg">           |
-| [`@microsoft/mgt-react`](https://www.npmjs.com/package/@microsoft/mgt-react)                               | <img src="https://img.shields.io/npm/v/@microsoft/mgt-react/latest.svg">                | <img src="https://img.shields.io/npm/v/@microsoft/mgt-react/next.svg">                |
-| [`@microsoft/mgt-msal2-provider`](https://www.npmjs.com/package/@microsoft/mgt-msal2-provider)             | <img src="https://img.shields.io/npm/v/@microsoft/mgt-msal2-provider/latest.svg">       | <img src="https://img.shields.io/npm/v/@microsoft/mgt-msal2-provider/next.svg">       |
-| [`@microsoft/mgt-teamsfx-provider`](https://www.npmjs.com/package/@microsoft/mgt-teamsfx-provider)         | <img src="https://img.shields.io/npm/v/@microsoft/mgt-teamsfx-provider/latest.svg">     | <img src="https://img.shields.io/npm/v/@microsoft/mgt-teamsfx-provider/next.svg">     |
-| [`@microsoft/mgt-sharepoint-provider`](https://www.npmjs.com/package/@microsoft/mgt-sharepoint-provider)   | <img src="https://img.shields.io/npm/v/@microsoft/mgt-sharepoint-provider/latest.svg">  | <img src="https://img.shields.io/npm/v/@microsoft/mgt-sharepoint-provider/next.svg">  |
-| [`@microsoft/mgt-proxy-provider`](https://www.npmjs.com/package/@microsoft/mgt-proxy-provider)             | <img src="https://img.shields.io/npm/v/@microsoft/mgt-proxy-provider/latest.svg">       | <img src="https://img.shields.io/npm/v/@microsoft/mgt-proxy-provider/next.svg">       |
-| [`@microsoft/mgt-spfx-utils`](https://www.npmjs.com/package/@microsoft/mgt-spfx-utils)                     | <img src="https://img.shields.io/npm/v/@microsoft/mgt-spfx-utils/latest.svg">                 | <img src="https://img.shields.io/npm/v/@microsoft/mgt-spfx/next.svg">                 |
-| [`@microsoft/mgt-electron-provider`](https://www.npmjs.com/package/@microsoft/mgt-electron-provider)       | <img src="https://img.shields.io/npm/v/@microsoft/mgt-electron-provider/latest.svg">    | <img src="https://img.shields.io/npm/v/@microsoft/mgt-electron-provider/next.svg">    |
+## 🔗 Links
+
+- **Original Project**: [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
+- **Fluent UI**: [react.fluentui.dev](https://react.fluentui.dev/)
+- **Microsoft Graph**: [graph.microsoft.com](https://graph.microsoft.com)
+
 
 ### Preview packages
 
