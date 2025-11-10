@@ -12,7 +12,11 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "dev": "vite build --watch",
@@ -27,7 +31,13 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": ["react", "microsoft-graph", "fluent-ui", "components", "graph-toolkit"],
+  "keywords": [
+    "react",
+    "microsoft-graph",
+    "fluent-ui",
+    "components",
+    "graph-toolkit"
+  ],
   "author": "",
   "license": "MIT",
   "peerDependencies": {
