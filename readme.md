@@ -14,12 +14,12 @@
 </p>
 
 <h3 align="center">
-  <a href="#getting-started">Get Started</a> • 
-  <a href="#storybook">Storybook</a> • 
+  <a href="#getting-started">Get Started</a> â€¢ 
+  <a href="#storybook">Storybook</a> â€¢ 
   <a href="#contribute">Contribute</a>
 </h3>
 
-## 🎯 Project Vision
+## ðŸŽ¯ Project Vision
 
 This project reimagines the Microsoft Graph Toolkit as a **modern, React-first component library** built on top of Fluent UI. After Microsoft deprecated the original Microsoft Graph Toolkit, this fork was created to continue providing React developers with high-quality components for Microsoft Graph integration.
 
@@ -50,7 +50,7 @@ Instead of maintaining the original web component approach, this fork:
 3. **Reduces Complexity**: Smaller codebase enables quicker development and easier maintenance
 4. **Focuses on Quality**: Fewer components, better implementation, comprehensive documentation
 
-## 📦 Package
+## ðŸ“¦ Package
 
 ```bash
 npm install @medienstudio/graph-toolkit-react
@@ -60,7 +60,7 @@ npm install @medienstudio/graph-toolkit-react
 | ------- | ------- | ----------- |
 | `@medienstudio/graph-toolkit-react` | `0.1.0-alpha.1` | React components for Microsoft Graph powered by Fluent UI |
 
-## 🎨 Components
+## ðŸŽ¨ Components
 
 Currently available in alpha:
 
@@ -95,7 +95,7 @@ import { Person } from '@medienstudio/graph-toolkit-react';
 - **FileList** - OneDrive/SharePoint file browsing
 - **And more...**
 
-## 🚀 Getting Started
+## ðŸš€ Getting Started
 
 ### Prerequisites
 
@@ -151,20 +151,18 @@ class MyAuthProvider implements IProvider {
 }
 ```
 
-## 📚 Storybook
+## ðŸ“š Storybook
 
 Explore all components interactively in our Storybook documentation:
 
-**[View Storybook →](https://thomaspe.github.io/microsoft-graph-toolkit/)** _(Deployed to GitHub Pages on every main branch update)_
+**[View Storybook â†’](https://thomaspe.github.io/microsoft-graph-toolkit/)** _(Deployed to GitHub Pages on every main branch update)_
 
 Run locally:
 ```bash
 npm run storybook
 ```
-npm run storybook
-```
 
-## 🛠️ Development
+## ðŸ› ï¸ Development
 
 ### Tech Stack
 
@@ -204,37 +202,37 @@ npm run build-storybook
 
 ```
 src/
-├── components/
-│   └── Person/
-│       ├── Person.tsx          # Component implementation
-│       ├── Person.types.ts     # TypeScript definitions
-│       └── __tests__/          # Component tests
-├── providers/
-│   ├── IProvider.ts            # Provider interface
-│   ├── MockProvider.ts         # Development provider
-│   └── ProviderContext.tsx     # React context
-├── hooks/
-│   ├── useGraphClient.ts       # Graph client hook
-│   ├── usePersonData.ts        # Person data fetching
-│   └── useProvider.ts          # Provider access
-└── index.ts                    # Public API
+â”œâ”€â”€ components/
+â”‚   â””â”€â”€ Person/
+â”‚       â”œâ”€â”€ Person.tsx          # Component implementation
+â”‚       â”œâ”€â”€ Person.types.ts     # TypeScript definitions
+â”‚       â””â”€â”€ __tests__/          # Component tests
+â”œâ”€â”€ providers/
+â”‚   â”œâ”€â”€ IProvider.ts            # Provider interface
+â”‚   â”œâ”€â”€ MockProvider.ts         # Development provider
+â”‚   â””â”€â”€ ProviderContext.tsx     # React context
+â”œâ”€â”€ hooks/
+â”‚   â”œâ”€â”€ useGraphClient.ts       # Graph client hook
+â”‚   â”œâ”€â”€ usePersonData.ts        # Person data fetching
+â”‚   â””â”€â”€ useProvider.ts          # Provider access
+â””â”€â”€ index.ts                    # Public API
 
 stories/
-└── Person.stories.tsx          # Storybook stories (19 examples)
+â””â”€â”€ Person.stories.tsx          # Storybook stories (19 examples)
 ```
 
-## 🎯 Current Status
+## ðŸŽ¯ Current Status
 
-**Phase 3 Complete** ✅
+**Phase 3 Complete** âœ…
 
-- ✅ Repository restructured from monorepo to single package
-- ✅ Provider infrastructure with MockProvider for development
-- ✅ Person component using Fluent UI Persona
-- ✅ Full Persona configuration support (textAlignment, textPosition, sizing)
-- ✅ Build system (ESM + CJS + TypeScript declarations)
-- ✅ Storybook documentation with 19 interactive examples
-- ✅ CI/CD with GitHub Actions
-- ✅ Automatic Storybook deployment to GitHub Pages
+- âœ… Repository restructured from monorepo to single package
+- âœ… Provider infrastructure with MockProvider for development
+- âœ… Person component using Fluent UI Persona
+- âœ… Full Persona configuration support (textAlignment, textPosition, sizing)
+- âœ… Build system (ESM + CJS + TypeScript declarations)
+- âœ… Storybook documentation with 19 interactive examples
+- âœ… CI/CD with GitHub Actions
+- âœ… Automatic Storybook deployment to GitHub Pages
 
 **Next Steps**:
 - Phase 4: Additional components (PeoplePicker, PersonCard, Login)
@@ -242,7 +240,7 @@ stories/
 - Comprehensive test coverage
 - First stable release (1.0.0)
 
-## 🤝 Contribute
+## ðŸ¤ Contribute
 
 After the deprecation of the original Microsoft Graph Toolkit, this **community-driven fork** continues to provide React developers with components for Microsoft Graph. Contributions are welcome!
 
@@ -256,13 +254,13 @@ After the deprecation of the original Microsoft Graph Toolkit, this **community-
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
-## 📝 License
+## ðŸ“ License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit) by Microsoft (now deprecated), which was also MIT licensed.
 
-## 🙏 Acknowledgments
+## ðŸ™ Acknowledgments
 
 - **Microsoft Graph Toolkit Team**: For creating the original toolkit and making it open source before deprecation
 - **Fluent UI Team**: For the excellent React component library
@@ -273,152 +271,11 @@ This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoft
 
 **Note**: This is an alpha release under active development. APIs may change. Not recommended for production use yet.
 
-> ⚠️ **About the Original Project**: The original Microsoft Graph Toolkit by Microsoft has been deprecated. This fork is a community effort to continue providing React components for Microsoft Graph integration with a modern, focused approach.
+> âš ï¸ **About the Original Project**: The original Microsoft Graph Toolkit by Microsoft has been deprecated. This fork is a community effort to continue providing React components for Microsoft Graph integration with a modern, focused approach.
 
-## 🔗 Links
+## ðŸ”— Links
 
 - **Original Project** (deprecated): [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
 - **Fluent UI**: [react.fluentui.dev](https://react.fluentui.dev/)
 - **Microsoft Graph**: [graph.microsoft.com](https://graph.microsoft.com)
-
-## Packages
-
-## 🔗 Links
-
-- **Original Project**: [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
-- **Fluent UI**: [react.fluentui.dev](https://react.fluentui.dev/)
-- **Microsoft Graph**: [graph.microsoft.com](https://graph.microsoft.com)
-
-
-### Preview packages
-
-In addition to the `@next` preview packages, we also ship packages under several other preview tags with various features in progress:
-
-| Tag             | Description                                                              |
-| --------------- | ------------------------------------------------------------------------ |
-| `next`          | Next release - updated on each commit to `main`                          |
-
-To install these packages, use the tag as the version in your `npm i` command. Ex: `npm i @microsoft/mgt-element@next`. Make sure to install the same version for all mgt packages to avoid any conflicts. Keep in mind, these are features in preview and are not recommended for production use.
-
-
-## Components
-
-You can explore components and samples with the [playground](https://mgt.dev) powered by storybook.
-
-The Toolkit currently includes the following components:
-
-* [mgt-agenda](https://learn.microsoft.com/graph/toolkit/components/agenda)
-* [mgt-file](https://learn.microsoft.com/graph/toolkit/components/file)
-* [mgt-file-list](https://learn.microsoft.com/graph/toolkit/components/file-list)
-* [mgt-get](https://learn.microsoft.com/graph/toolkit/components/get)
-* [mgt-login](https://learn.microsoft.com/graph/toolkit/components/login)
-* [mgt-people](https://learn.microsoft.com/graph/toolkit/components/people)
-* [mgt-people-picker](https://learn.microsoft.com/graph/toolkit/components/people-picker)
-* [mgt-person](https://learn.microsoft.com/graph/toolkit/components/person)
-* [mgt-person-card](https://learn.microsoft.com/graph/toolkit/components/person-card)
-* [mgt-picker](https://learn.microsoft.com/en-us/graph/toolkit/components/picker)
-* [mgt-search-box](https://learn.microsoft.com/graph/toolkit/components/person-box)
-* [mgt-search-results](https://learn.microsoft.com/graph/toolkit/components/search-results)
-* [mgt-tasks](https://learn.microsoft.com/graph/toolkit/components/tasks)
-* [mgt-taxonomy-picker](https://learn.microsoft.com/graph/toolkit/components/taxonomy-picker)
-* [mgt-teams-channel-picker](https://learn.microsoft.com/graph/toolkit/components/teams-channel-picker)
-* [mgt-theme-toggle](https://learn.microsoft.com/graph/toolkit/components/theme-toggle)
-* [mgt-todo](https://learn.microsoft.com/graph/toolkit/components/todo)
-
-
-All web components are also available as React component - see [@microsoft/mgt-react documentation](https://learn.microsoft.com/graph/toolkit/get-started/mgt-react).
-
-## Providers
-
-[Providers](https://learn.microsoft.com/graph/toolkit/providers/providers) enable authentication and provide the implementation for acquiring access tokens on various platforms. The providers also expose a Microsoft Graph Client for calling the Microsoft Graph APIs. The components work best when used with a provider, but the providers can be used on their own as well.
-
-* [Msal2Provider](https://learn.microsoft.com/graph/toolkit/providers/msal2)
-* [SharePointProvider](https://learn.microsoft.com/graph/toolkit/providers/sharepoint)
-* [TeamsFxProvider](https://learn.microsoft.com/graph/toolkit/providers/teamsfx)
-* [ProxyProvider](https://learn.microsoft.com/graph/toolkit/providers/proxy)
-* [SimpleProvider](https://learn.microsoft.com/graph/toolkit/providers/custom)
-* [ElectronProvider](https://learn.microsoft.com/graph/toolkit/providers/electron)
-
-You can also create your own providers by extending the [IProvider](https://learn.microsoft.com/graph/toolkit/providers/custom) abstract class.
-
-[View the full documentation](https://learn.microsoft.com/graph/toolkit/overview)
-
-## Getting Started
-
-The following guides are available to help you get started with the Toolkit:
-* [Build a web application (JavaScript)](https://learn.microsoft.com/graph/toolkit/get-started/build-a-web-app)
-* [Build a SharePoint web part Part](https://learn.microsoft.com/graph/toolkit/get-started/build-a-sharepoint-web-part)
-* [Build a Microsoft Teams tab](https://learn.microsoft.com/graph/toolkit/get-started/build-a-microsoft-teams-tab)
-* [Build an Electron app](https://learn.microsoft.com/en-us/graph/toolkit/get-started/build-an-electron-app)
-* [Use the Toolkit with React](https://learn.microsoft.com/graph/toolkit/get-started/use-toolkit-with-react)
-* [Use the Toolkit with Angular](https://learn.microsoft.com/graph/toolkit/get-started/use-toolkit-with-angular)
-* [Build a productivity hub app](https://learn.microsoft.com/en-us/graph/toolkit/get-started/building-one-productivity-hub)
-
-You can use the components by installing the npm package or importing them from a CDN (unpkg).
-
-### Use via NPM:
-
-The benefits of using MGT through NPM is that you have full control of the bundling process and you can bundle only the code you need for your site. First, add the npm package:
-
-```bash
-npm install @microsoft/mgt-components
-npm install @microsoft/mgt-msal2-provider
-```
-
-Now you can reference all components and providers at the page you are using:
-
-```html
-<script type="module">
-  import { Providers } from 'node_modules/@microsoft/mgt-element/dist/es6/index.js';
-  import { Msal2Provider } from 'node_modules/@microsoft/mgt-msal2-provider/dist/es6/index.js';
-  import { registerMgtLoginComponent, registerMgtAgendaComponent } from 'node_modules/@microsoft/mgt-components/dist/es6/index.js';
-  
-  Providers.globalProvider = new Msal2Provider({clientId: '[CLIENT-ID]'});
-  
-  registerMgtLoginComponent();
-  registerMgtAgendaComponent();
-</script>
-
-<mgt-login></mgt-login>
-<mgt-agenda></mgt-agenda>
-```
-
-### Use via CDN:
-
-The following script tag downloads the code from the CDN, configures an MSAL2 provider, and makes all the components available for use in the web page.
-
-```html
-<script type="module">
-  import { registerMgtComponents, Providers, Msal2Provider } from 'https://unpkg.com/@microsoft/mgt@4';
-  Providers.globalProvider = new Msal2Provider({clientId: '[CLIENT-ID]'});
-  registerMgtComponents();
-</script>
-<mgt-login></mgt-login>
-<mgt-agenda></mgt-agenda>
-```
-
-> NOTE: This link will load the highest available version of @microsoft/mgt in the range `>= 4.0.0 < 5.0.0`, omitting the `@4` fragment from the url results in loading the latest version. This could result in loading a new major version and breaking the application.
-
-> NOTE: MSAL requires the page to be hosted in a web server for the authentication redirects. If you are just getting started and want to play around, the quickest way is to use something like [live server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in vscode.
-
-## Using our samples
-
-We, in collaboration with the community, are providing different samples to help you with different scenarios to leverage the Microsoft Graph Toolkit. Our samples are hosted in another repo and is also fully open-source! Head over to the [Microsoft Graph Toolkit Samples Repository](https://aka.ms/mgt/samples) and you will find all sorts of samples to get you started quickly!
-
-## Contribute
-
-We enthusiastically welcome contributions and feedback. Please read our [wiki](https://github.com/microsoftgraph/microsoft-graph-toolkit/wiki) and the [contributing guide](CONTRIBUTING.md) before you begin.
-
-## Feedback and Requests
-
-For general questions and support, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-graph-toolkit) where questions should be tagged with `microsoft-graph-toolkit`
-
-Please use [GitHub Issues](https://github.com/microsoftgraph/microsoft-graph-toolkit/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) for bug reports and feature requests. We highly recommend you browse existing issues before opening new issues.
-
-## License
-
-All files in this GitHub repository are subject to the [MIT license](https://github.com/microsoftgraph/microsoft-graph-toolkit/blob/main/LICENSE). This project also references fonts and icons from a CDN, which are subject to a separate [asset license](https://static2.sharepointonline.com/files/fabric/assets/license.txt).
-
-## Code of Conduct
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+````
