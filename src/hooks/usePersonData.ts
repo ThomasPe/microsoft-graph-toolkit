@@ -56,13 +56,13 @@ export const usePersonData = (options: UsePersonDataOptions): PersonData => {
                 id: mockUser.id!,
                 odataType: '#microsoft.graph.presence',
             } as unknown as Presence;
-            const transparentPng =
-                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=';
+            // Sample avatar image from GitHub (Microsoft Graph Toolkit's Graff mascot)
+            const sampleAvatarUrl = 'https://github.com/microsoftgraph/microsoft-graph-toolkit/raw/main/assets/graff.png';
 
             setData({
                 user: mockUser,
                 presence: options.fetchPresence ? mockPresence : null,
-                photoUrl: options.fetchPhoto ? transparentPng : null,
+                photoUrl: options.fetchPhoto ? sampleAvatarUrl : null,
                 loading: false,
                 error: null,
             });
