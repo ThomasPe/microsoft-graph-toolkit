@@ -14,12 +14,12 @@
 </p>
 
 <h3 align="center">
-  <a href="#getting-started">Get Started</a> â€¢ 
-  <a href="#storybook">Storybook</a> â€¢ 
+  <a href="#getting-started">Get Started</a> • 
+  <a href="#storybook">Storybook</a> • 
   <a href="#contribute">Contribute</a>
 </h3>
 
-## ðŸŽ¯ Project Vision
+## 🎯 Project Vision
 
 This project reimagines the Microsoft Graph Toolkit as a **modern, React-first component library** built on top of Fluent UI. After Microsoft deprecated the original Microsoft Graph Toolkit, this fork was created to continue providing React developers with high-quality components for Microsoft Graph integration.
 
@@ -50,7 +50,7 @@ Instead of maintaining the original web component approach, this fork:
 3. **Reduces Complexity**: Smaller codebase enables quicker development and easier maintenance
 4. **Focuses on Quality**: Fewer components, better implementation, comprehensive documentation
 
-## ðŸ“¦ Package
+## 📦 Package
 
 ```bash
 npm install @medienstudio/graph-toolkit-react
@@ -60,7 +60,7 @@ npm install @medienstudio/graph-toolkit-react
 | ------- | ------- | ----------- |
 | `@medienstudio/graph-toolkit-react` | `0.1.0-alpha.1` | React components for Microsoft Graph powered by Fluent UI |
 
-## ðŸŽ¨ Components
+## 🎨 Components
 
 Currently available in alpha:
 
@@ -95,7 +95,7 @@ import { Person } from '@medienstudio/graph-toolkit-react';
 - **FileList** - OneDrive/SharePoint file browsing
 - **And more...**
 
-## ðŸš€ Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -151,18 +151,20 @@ class MyAuthProvider implements IProvider {
 }
 ```
 
-## ðŸ“š Storybook
+## 📚 Storybook
 
 Explore all components interactively in our Storybook documentation:
 
-**[View Storybook â†’](https://thomaspe.github.io/microsoft-graph-toolkit/)** _(Deployed to GitHub Pages on every main branch update)_
+**[View Storybook →](https://thomaspe.github.io/microsoft-graph-toolkit/)** _(Deployed to GitHub Pages on every main branch update)_
 
 Run locally:
 ```bash
 npm run storybook
 ```
+npm run storybook
+```
 
-## ðŸ› ï¸ Development
+## 🛠️ Development
 
 ### Tech Stack
 
@@ -202,37 +204,37 @@ npm run build-storybook
 
 ```
 src/
-â”œâ”€â”€ components/
-â”‚   â””â”€â”€ Person/
-â”‚       â”œâ”€â”€ Person.tsx          # Component implementation
-â”‚       â”œâ”€â”€ Person.types.ts     # TypeScript definitions
-â”‚       â””â”€â”€ __tests__/          # Component tests
-â”œâ”€â”€ providers/
-â”‚   â”œâ”€â”€ IProvider.ts            # Provider interface
-â”‚   â”œâ”€â”€ MockProvider.ts         # Development provider
-â”‚   â””â”€â”€ ProviderContext.tsx     # React context
-â”œâ”€â”€ hooks/
-â”‚   â”œâ”€â”€ useGraphClient.ts       # Graph client hook
-â”‚   â”œâ”€â”€ usePersonData.ts        # Person data fetching
-â”‚   â””â”€â”€ useProvider.ts          # Provider access
-â””â”€â”€ index.ts                    # Public API
+├── components/
+│   └── Person/
+│       ├── Person.tsx          # Component implementation
+│       ├── Person.types.ts     # TypeScript definitions
+│       └── __tests__/          # Component tests
+├── providers/
+│   ├── IProvider.ts            # Provider interface
+│   ├── MockProvider.ts         # Development provider
+│   └── ProviderContext.tsx     # React context
+├── hooks/
+│   ├── useGraphClient.ts       # Graph client hook
+│   ├── usePersonData.ts        # Person data fetching
+│   └── useProvider.ts          # Provider access
+└── index.ts                    # Public API
 
 stories/
-â””â”€â”€ Person.stories.tsx          # Storybook stories (19 examples)
+└── Person.stories.tsx          # Storybook stories (19 examples)
 ```
 
-## ðŸŽ¯ Current Status
+## 🎯 Current Status
 
-**Phase 3 Complete** âœ…
+**Phase 3 Complete** ✅
 
-- âœ… Repository restructured from monorepo to single package
-- âœ… Provider infrastructure with MockProvider for development
-- âœ… Person component using Fluent UI Persona
-- âœ… Full Persona configuration support (textAlignment, textPosition, sizing)
-- âœ… Build system (ESM + CJS + TypeScript declarations)
-- âœ… Storybook documentation with 19 interactive examples
-- âœ… CI/CD with GitHub Actions
-- âœ… Automatic Storybook deployment to GitHub Pages
+- ✅ Repository restructured from monorepo to single package
+- ✅ Provider infrastructure with MockProvider for development
+- ✅ Person component using Fluent UI Persona
+- ✅ Full Persona configuration support (textAlignment, textPosition, sizing)
+- ✅ Build system (ESM + CJS + TypeScript declarations)
+- ✅ Storybook documentation with 19 interactive examples
+- ✅ CI/CD with GitHub Actions
+- ✅ Automatic Storybook deployment to GitHub Pages
 
 **Next Steps**:
 - Phase 4: Additional components (PeoplePicker, PersonCard, Login)
@@ -240,7 +242,7 @@ stories/
 - Comprehensive test coverage
 - First stable release (1.0.0)
 
-## ðŸ¤ Contribute
+## 🤝 Contribute
 
 After the deprecation of the original Microsoft Graph Toolkit, this **community-driven fork** continues to provide React developers with components for Microsoft Graph. Contributions are welcome!
 
@@ -254,13 +256,13 @@ After the deprecation of the original Microsoft Graph Toolkit, this **community-
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
-## ðŸ“ License
+## 📝 License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
 This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit) by Microsoft (now deprecated), which was also MIT licensed.
 
-## ðŸ™ Acknowledgments
+## 🙏 Acknowledgments
 
 - **Microsoft Graph Toolkit Team**: For creating the original toolkit and making it open source before deprecation
 - **Fluent UI Team**: For the excellent React component library
@@ -271,11 +273,11 @@ This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoft
 
 **Note**: This is an alpha release under active development. APIs may change. Not recommended for production use yet.
 
-> âš ï¸ **About the Original Project**: The original Microsoft Graph Toolkit by Microsoft has been deprecated. This fork is a community effort to continue providing React components for Microsoft Graph integration with a modern, focused approach.
+> ⚠️ **About the Original Project**: The original Microsoft Graph Toolkit by Microsoft has been deprecated. This fork is a community effort to continue providing React components for Microsoft Graph integration with a modern, focused approach.
 
-## ðŸ”— Links
+## 🔗 Links
 
 - **Original Project** (deprecated): [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
 - **Fluent UI**: [react.fluentui.dev](https://react.fluentui.dev/)
 - **Microsoft Graph**: [graph.microsoft.com](https://graph.microsoft.com)
-````
+
