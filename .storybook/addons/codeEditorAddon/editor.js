@@ -83,7 +83,7 @@ export class EditorElement extends LitElement {
   static get properties() {
     return {
       files: { type: Array, attribute: false },
-      currentType: { type: String }
+      currentType: { type: String },
     };
   }
 
@@ -130,20 +130,20 @@ export class EditorElement extends LitElement {
     this.editorState = {
       js: {
         model: monaco.editor.createModel('', 'javascript'),
-        state: null
+        state: null,
       },
       css: {
         model: monaco.editor.createModel('', 'css'),
-        state: null
+        state: null,
       },
       html: {
         model: monaco.editor.createModel('', 'html'),
-        state: null
+        state: null,
       },
       react: {
         model: monaco.editor.createModel('', 'typescript'),
-        state: null
-      }
+        state: null,
+      },
     };
 
     this.currentEditorState = this.editorState[this.fileTypes[0]];
@@ -153,8 +153,8 @@ export class EditorElement extends LitElement {
       scrollBeyondLastLine: false,
       readOnly: true,
       minimap: {
-        enabled: false
-      }
+        enabled: false,
+      },
     });
 
     // Exit the current editor
@@ -164,12 +164,12 @@ export class EditorElement extends LitElement {
     });
 
     const changeViewZones = () => {
-      this.editor.changeViewZones(changeAccessor => {
+      this.editor.changeViewZones((changeAccessor) => {
         const domNode = document.createElement('div');
         changeAccessor.addZone({
           afterLineNumber: 0,
           heightInLines: 1,
-          domNode: domNode
+          domNode: domNode,
         });
       });
     };
@@ -197,7 +197,7 @@ export class EditorElement extends LitElement {
 
     window.addEventListener('resize', this.handleResize);
 
-    setTimeout(_ => {
+    setTimeout((_) => {
       this.editor.layout();
     }, 2);
   }
@@ -225,7 +225,7 @@ export class EditorElement extends LitElement {
     generateProject(this.title, this.files);
   };
 
-  tabKeyDown = e => {
+  tabKeyDown = (e) => {
     const tabs = this.renderRoot.querySelectorAll('.tab');
     // Move right
     if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
@@ -255,10 +255,10 @@ export class EditorElement extends LitElement {
       <div class="root">
         <div class="tab-root" role="tablist" tabindex="0" @keydown="${this.tabKeyDown}" >
           ${this.fileTypes.map(
-            type => html`
+            (type) => html`
               <button
                 tabindex="${type === this.currentType ? 0 : -1}"
-                @click="${_ => this.showTab(type)}"
+                @click="${(_) => this.showTab(type)}"
                 id="${type}"
                 role="tab"
                 class="tab"
@@ -292,7 +292,7 @@ export class EditorElement extends LitElement {
         >
           <slot name="editor"></slot>
         </div>
-        ${this.fileTypes.map(type =>
+        ${this.fileTypes.map((type) =>
           type !== this.currentType
             ? html`
             <div

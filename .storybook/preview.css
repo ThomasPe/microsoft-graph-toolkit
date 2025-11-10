@@ -8,9 +8,18 @@ body,
 #storybook-root {
   height: 100%;
   width: 100%;
-  font-family: var(--default-font-family, 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto,
-  'Helvetica Neue', sans-serif);
-  padding: 0!important;
+  font-family: var(
+    --default-font-family,
+    'Segoe UI',
+    'Segoe UI Web (West European)',
+    'Segoe UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    'Helvetica Neue',
+    sans-serif
+  );
+  padding: 0 !important;
 }
 
 .docs-img-centered {
@@ -69,7 +78,7 @@ body {
 
 .story-mgt-separator {
   cursor: ew-resize;
-  background-color: rgb(37  37 38);
+  background-color: rgb(37 37 38);
   position: relative;
   height: 100%;
   float: left;
@@ -97,7 +106,7 @@ body {
 /* fixes link color and attribute value colors in storybook inline code blocks */
 .sbdocs-a,
 .css-zj0253 * .token.attr-value {
-  color: #0360B9 !important;
+  color: #0360b9 !important;
 }
 
 /* fix attribute names in html rendering */
@@ -129,7 +138,7 @@ span.token.script.language-javascript.class-name {
 
 /* stylelint-disable-next-line selector-class-pattern */
 .css-1wjen9k .innerZoomElementWrapper > div {
-  border: 0!important;
+  border: 0 !important;
 }
 
 /* responsive fixes for small screens */

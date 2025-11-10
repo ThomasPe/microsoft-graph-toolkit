@@ -32,5 +32,5 @@ export default create({
   // inputBorderRadius: 4,
 
   brandTitle: 'Graph Toolkit React',
-  brandUrl: 'https://github.com/ThomasPe/microsoft-graph-toolkit'
+  brandUrl: 'https://github.com/ThomasPe/microsoft-graph-toolkit',
 });

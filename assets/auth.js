@@ -3,5 +3,5 @@ import { Msal2Provider } from '../packages/providers/mgt-msal2-provider/dist/es6
 import { CLIENTID } from './env';
 
 Providers.globalProvider = new Msal2Provider({
-  clientId: CLIENTID
+  clientId: CLIENTID,
 });

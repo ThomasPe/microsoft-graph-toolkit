@@ -11,7 +11,7 @@ const mgtScriptName = './mgt.storybook.js';
 const setupEditorResize = (first, separator, last, dragComplete) => {
   var md; // remember mouse down info
 
-  separator.addEventListener('mousedown', e => {
+  separator.addEventListener('mousedown', (e) => {
     md = {
       e,
       offsetLeft: separator.offsetLeft,
@@ -19,7 +19,7 @@ const setupEditorResize = (first, separator, last, dragComplete) => {
       firstWidth: first.offsetWidth,
       lastWidth: last.offsetWidth,
       firstHeight: first.offsetHeight,
-      lastHeight: last.offsetHeight
+      lastHeight: last.offsetHeight,
     };
 
     first.style.pointerEvents = 'none';
@@ -41,7 +41,7 @@ const setupEditorResize = (first, separator, last, dragComplete) => {
     document.removeEventListener('mouseup', onMouseUp);
   };
 
-  const onMouseMove = e => {
+  const onMouseMove = (e) => {
     var delta = { x: e.clientX - md.e.x, y: e.clientY - md.e.y };
 
     if (window.innerWidth > 800) {
@@ -73,7 +73,8 @@ export const withCodeEditor = makeDecorator({
   wrapper: (getStory, context, { options }) => {
     const forOptions = options ? options.disableThemeToggle : false;
     const title =
-      ['Custom CSS Properties', 'Theme'].includes(context.name) || context.title.toLowerCase().includes('templating');
+      ['Custom CSS Properties', 'Theme'].includes(context.name) ||
+      context.title.toLowerCase().includes('templating');
     const forContext = context && title;
     const disableThemeToggle = forOptions || forContext;
     let story = getStory(context);
@@ -140,8 +141,11 @@ export const withCodeEditor = makeDecorator({
       }
     };
 
-    const isValid = manifestUrl => {
-      return manifestUrl && manifestUrl.startsWith('https://raw.githubusercontent.com/pnp/mgt-samples/main/');
+    const isValid = (manifestUrl) => {
+      return (
+        manifestUrl &&
+        manifestUrl.startsWith('https://raw.githubusercontent.com/pnp/mgt-samples/main/')
+      );
     };
 
     if (context.name === 'Editor') {
@@ -151,17 +155,17 @@ export const withCodeEditor = makeDecorator({
         var manifestUrl = urlParams.get('manifest');
 
         if (isValid(manifestUrl)) {
-          getContent(manifestUrl, true).then(manifest => {
+          getContent(manifestUrl, true).then((manifest) => {
             Promise.all([
               getContent(manifest[0].preview.html),
               getContent(manifest[0].preview.js),
-              getContent(manifest[0].preview.css)
-            ]).then(values => {
+              getContent(manifest[0].preview.css),
+            ]).then((values) => {
               //editor.autoFormat = false;
               editor.files = {
                 html: beautifyContent('html', values[0]),
                 js: beautifyContent('js', values[1]),
-                css: beautifyContent('css', values[2])
+                css: beautifyContent('css', values[2]),
               };
             });
           });
@@ -199,7 +203,7 @@ export const withCodeEditor = makeDecorator({
     `;
 
     const channel = addons.getChannel();
-    channel.on(SETPROVIDER_EVENT, params => {
+    channel.on(SETPROVIDER_EVENT, (params) => {
       if (params.state === ProviderState.SignedIn && params.name === 'MgtMockProvider') {
         providerInitCode = `
           import { Providers, MockProvider } from "${mgtScriptName}";
@@ -216,7 +220,7 @@ export const withCodeEditor = makeDecorator({
       }
     });
 
-    const getStoryTitle = context => {
+    const getStoryTitle = (context) => {
       const storyTitle = `${context?.title} - ${context?.story}`;
       return storyTitle;
     };
@@ -282,7 +286,9 @@ export const withCodeEditor = makeDecorator({
 
     root.className = 'story-mgt-root';
 
-    storyElementWrapper.className = isEditorEnabled() ? 'story-mgt-preview-wrapper' : 'story-mgt-preview-wrapper-full';
+    storyElementWrapper.className = isEditorEnabled()
+      ? 'story-mgt-preview-wrapper'
+      : 'story-mgt-preview-wrapper-full';
     separator.className = 'story-mgt-separator';
     editor.className = 'story-mgt-editor';
 
@@ -304,11 +310,11 @@ export const withCodeEditor = makeDecorator({
       html: beautifyContent('html', storyHtml),
       react: beautifyContent('js', reactCode),
       js: beautifyContent('js', scriptCode),
-      css: beautifyContent('css', styleCode)
+      css: beautifyContent('css', styleCode),
     };
 
     editor.title = getStoryTitle(context);
 
     return root;
-  }
+  },
 });

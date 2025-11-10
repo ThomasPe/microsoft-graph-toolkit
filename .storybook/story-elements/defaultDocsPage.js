@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { Title, Subtitle, Description, Primary, PRIMARY_STORY, ArgTypes } from '@storybook/addon-docs';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  PRIMARY_STORY,
+  ArgTypes,
+} from '@storybook/addon-docs';
 
 export const defaultDocsPage = () => (
   <>

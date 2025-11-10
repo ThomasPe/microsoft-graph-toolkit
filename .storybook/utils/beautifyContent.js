@@ -18,7 +18,7 @@ export const beautifyContent = (type, content) => {
     indent_inner_html: true,
     comma_first: false,
     e4x: true,
-    indent_empty_lines: false
+    indent_empty_lines: false,
   };
 
   let beautifiedContent = content;

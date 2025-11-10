@@ -1,6 +1,6 @@
 /**
  * Microsoft Graph Toolkit - React Components
- * 
+ *
  * React components for Microsoft Graph powered by Fluent UI
  */
 

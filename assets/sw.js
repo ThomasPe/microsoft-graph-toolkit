@@ -4,11 +4,11 @@ if (!self.define) {
   const n = (n, e) => (
     (n = new URL(n + '.js', e).href),
     i[n] ||
-      new Promise(i => {
+      new Promise((i) => {
         if ('document' in self) {
           const c = document.createElement('script');
-          (c.src = n), (c.onload = i), document.head.appendChild(c);
-        } else (c = n), importScripts(n), i();
+          ((c.src = n), (c.onload = i), document.head.appendChild(c));
+        } else ((c = n), importScripts(n), i());
       }).then(() => {
         let c = i[n];
         if (!c) throw new Error(`Module ${n} didn’t register its module`);
@@ -19,14 +19,14 @@ if (!self.define) {
     const f = c || ('document' in self ? document.currentScript.src : '') || location.href;
     if (i[f]) return;
     let r = {};
-    const s = c => n(c, f),
+    const s = (c) => n(c, f),
       a = { module: { uri: f }, exports: r, require: s };
-    i[f] = Promise.all(e.map(c => a[c] || s(c))).then(c => (o(...c), r));
+    i[f] = Promise.all(e.map((c) => a[c] || s(c))).then((c) => (o(...c), r));
   };
 }
 define(['./workbox-dae083bf'], function (c) {
   'use strict';
-  self.addEventListener('message', c => {
+  (self.addEventListener('message', (c) => {
     c.data && 'SKIP_WAITING' === c.data.type && self.skipWaiting();
   }),
     c.precacheAndRoute(
@@ -97,8 +97,8 @@ define(['./workbox-dae083bf'], function (c) {
         { url: 'icons/96x96-icon.png', revision: '521fb6b0d2e5e477b71c5dac1b022b9c' },
         { url: 'manifest.json', revision: 'ee016e1fe5c51f6cca2a570d121c33b8' },
         { url: 'mgt.png', revision: '0a1f53f06c9711cf7d83128cd76e7f8e' },
-        { url: 'mgt.storybook.js', revision: 'bebf2959d77ab8a92a7afa4f4780472a' }
+        { url: 'mgt.storybook.js', revision: 'bebf2959d77ab8a92a7afa4f4780472a' },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }
-    );
+    ));
 });

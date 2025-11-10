@@ -18,7 +18,7 @@ export const versionInfo = {
   major,
   minor,
   patch,
-  postfix
+  postfix,
 };
 
 export const getCleanVersionInfo = (majorOnly = false) => {
