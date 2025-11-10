@@ -10,6 +10,7 @@ export * from './components/Person';
 // Providers
 export * from './providers/IProvider';
 export * from './providers/ProviderContext';
+export * from './providers/MockProvider';
 
 // Hooks
 export * from './hooks/useGraphClient';

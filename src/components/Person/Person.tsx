@@ -5,7 +5,6 @@
 import React from 'react';
 import {
     Persona,
-    PersonaSize,
     PresenceBadgeStatus,
 } from '@fluentui/react-components';
 import { usePersonData } from '../../hooks/usePersonData';
@@ -13,9 +12,9 @@ import { getInitials } from '../../utils/graph';
 import { PersonProps } from './Person.types';
 
 /**
- * Map person size to Fluent UI Persona size
+ * Map component size to Fluent UI Persona size
  */
-const mapSize = (size?: string): PersonaSize => {
+const mapSize = (size?: string): 'extra-small' | 'small' | 'medium' | 'large' | 'extra-large' | 'huge' => {
     switch (size) {
         case 'small':
             return 'small';
@@ -32,7 +31,7 @@ const mapSize = (size?: string): PersonaSize => {
 /**
  * Map Graph presence to Fluent UI presence status
  */
-const mapPresence = (availability?: string): PresenceBadgeStatus => {
+const mapPresence = (availability?: string | null): PresenceBadgeStatus => {
     switch (availability?.toLowerCase()) {
         case 'available':
         case 'availableidle':
@@ -103,16 +102,19 @@ export const Person: React.FC<PersonProps> = ({
 
     if (showPresence && presence) {
         personaProps.presence = {
-            status: mapPresence(presence.availability),
+            status: mapPresence(presence.availability as string | null),
         };
     }
 
-    if (view === 'twolines' || view === 'threelines') {
-        personaProps.secondaryText = person.jobTitle;
-    }
+    // Only show secondary/tertiary text for non-avatar views
+    if (view !== 'avatar') {
+        if (view === 'twolines' || view === 'threelines') {
+            personaProps.secondaryText = person.jobTitle ?? undefined;
+        }
 
-    if (view === 'threelines') {
-        personaProps.tertiaryText = person.department;
+        if (view === 'threelines') {
+            personaProps.tertiaryText = person.department ?? undefined;
+        }
     }
 
     if (onClick) {

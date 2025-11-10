@@ -4,7 +4,7 @@
 
 import { useMemo } from 'react';
 import { Client } from '@microsoft/microsoft-graph-client';
-import { useProvider } from '../providers/ProviderContext';
+import { useProvider, useProviderState } from '../providers/ProviderContext';
 import { createGraphClient } from '../utils/graph';
 
 /**
@@ -12,9 +12,11 @@ import { createGraphClient } from '../utils/graph';
  */
 export const useGraphClient = (): Client | null => {
     const provider = useProvider();
+    const state = useProviderState();
 
     return useMemo(() => {
         if (!provider) return null;
+        if (state !== 'SignedIn') return null;
         return createGraphClient(provider);
-    }, [provider]);
+    }, [provider, state]);
 };

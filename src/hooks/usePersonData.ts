@@ -5,6 +5,8 @@
 import { useState, useEffect } from 'react';
 import { User, Presence } from '@microsoft/microsoft-graph-types';
 import { useGraphClient } from './useGraphClient';
+import { useProvider, useProviderState } from '../providers/ProviderContext';
+import { MockProvider } from '../providers/MockProvider';
 
 export interface PersonData {
     user: User | null;
@@ -26,6 +28,8 @@ export interface UsePersonDataOptions {
  */
 export const usePersonData = (options: UsePersonDataOptions): PersonData => {
     const graphClient = useGraphClient();
+    const provider = useProvider();
+    const providerState = useProviderState();
     const [data, setData] = useState<PersonData>({
         user: null,
         presence: null,
@@ -35,14 +39,50 @@ export const usePersonData = (options: UsePersonDataOptions): PersonData => {
     });
 
     useEffect(() => {
-        if (!graphClient) {
+        if (provider instanceof MockProvider) {
+            // Return static mock data without calling Graph
+            const mockUser: User = {
+                id: '00000000-0000-0000-0000-000000000000',
+                displayName: 'Adele Vance',
+                userPrincipalName: 'adelev@contoso.com',
+                jobTitle: 'Product Manager',
+                department: 'Marketing',
+                officeLocation: '19/3106',
+                mail: 'adelev@contoso.com',
+            } as User;
+            const mockPresence: Presence = {
+                availability: 'Available',
+                activity: 'Available',
+                id: mockUser.id!,
+                odataType: '#microsoft.graph.presence',
+            } as unknown as Presence;
+            const transparentPng =
+                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=';
+
+            setData({
+                user: mockUser,
+                presence: options.fetchPresence ? mockPresence : null,
+                photoUrl: options.fetchPhoto ? transparentPng : null,
+                loading: false,
+                error: null,
+            });
+            return;
+        }
+
+        if (providerState !== 'SignedIn') {
             setData({
                 user: null,
                 presence: null,
                 photoUrl: null,
                 loading: false,
-                error: new Error('No Graph provider available'),
+                error: providerState === 'SignedOut' ? null : new Error('Provider not signed in'),
             });
+            return;
+        }
+
+        if (!graphClient) {
+            // Graph client not yet available even though state is SignedIn (transient)
+            setData(prev => ({ ...prev, loading: true }));
             return;
         }
 

@@ -12,11 +12,7 @@
       "require": "./dist/index.js"
     }
   },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
+  "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "dev": "vite build --watch",
@@ -31,13 +27,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [
-    "react",
-    "microsoft-graph",
-    "fluent-ui",
-    "components",
-    "graph-toolkit"
-  ],
+  "keywords": ["react", "microsoft-graph", "fluent-ui", "components", "graph-toolkit"],
   "author": "",
   "license": "MIT",
   "peerDependencies": {
@@ -50,7 +40,8 @@
     "@microsoft/microsoft-graph-types": "^2.40.0"
   },
   "devDependencies": {
-    "@fluentui/react-components": "^9.54.0",
+    "@fluentui/react-components": "^9.72.6",
+    "@testing-library/react": "^14.0.0",
     "@storybook/addon-a11y": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.17",
     "@storybook/addon-interactions": "^7.6.17",
