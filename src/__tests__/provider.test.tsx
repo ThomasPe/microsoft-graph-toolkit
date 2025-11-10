@@ -15,18 +15,18 @@ describe('ProviderContext', () => {
         const { result: providerResult } = renderHook(() => useProvider(), { wrapper });
         const { result: stateResult } = renderHook(() => useProviderState(), { wrapper });
 
-    expect(providerResult.current).toBe(mock);
-    expect(stateResult.current).toBe('SignedOut');
+        expect(providerResult.current).toBe(mock);
+        expect(stateResult.current).toBe('SignedOut');
 
-    await act(async () => {
-        await mock.login();
+        await act(async () => {
+            await mock.login();
+        });
+
+        expect(stateResult.current).toBe('SignedIn');
+
+        await act(async () => {
+            await mock.logout();
+        });
+        expect(stateResult.current).toBe('SignedOut');
     });
-
-    expect(stateResult.current).toBe('SignedIn');
-
-    await act(async () => {
-        await mock.logout();
-    });
-    expect(stateResult.current).toBe('SignedOut');
-});
 });
