@@ -79,21 +79,6 @@ import { Person } from '@medienstudio/graph-toolkit-react';
 />
 ```
 
-**Features:**
-- Multiple display modes: avatar-only, one-line, two-lines, three-lines
-- Presence indicators (available, busy, away, etc.)
-- Text alignment and positioning options
-- Custom sizing (small, medium, large, extra-large, or numeric pixels)
-- Click handlers for interactive scenarios
-- Loading states
-- Direct data mode (bypass Graph API)
-
-### Coming Soon
-- **PeoplePicker** - Multi-user selection with search
-- **PersonCard** - Expandable contact card with full profile
-- **Login** - Authentication control with Microsoft identity
-- **FileList** - OneDrive/SharePoint file browsing
-- **And more...**
 
 ## 🚀 Getting Started
 
