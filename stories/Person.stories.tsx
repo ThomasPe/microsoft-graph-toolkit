@@ -15,67 +15,67 @@ import { MockProvider } from '../src/providers/MockProvider';
  * - Mock provider for development/testing
  */
 const meta = {
-  title: 'Components/Person',
-  component: Person,
-  parameters: {
-    layout: 'centered',
-    docs: {
-      description: {
-        component: 'Display a person with avatar, name, job title, and presence information from Microsoft Graph.',
-      },
+    title: 'Components/Person',
+    component: Person,
+    parameters: {
+        layout: 'centered',
+        docs: {
+            description: {
+                component: 'Display a person with avatar, name, job title, and presence information from Microsoft Graph.',
+            },
+        },
     },
-  },
-  tags: ['autodocs'],
-  decorators: [
-    (Story) => {
-      const mockProvider = new MockProvider({ autoSignIn: true });
-      return (
-        <GraphProvider provider={mockProvider}>
-          <Story />
-        </GraphProvider>
-      );
+    tags: ['autodocs'],
+    decorators: [
+        (Story) => {
+            const mockProvider = new MockProvider({ autoSignIn: true });
+            return (
+                <GraphProvider provider={mockProvider}>
+                    <Story />
+                </GraphProvider>
+            );
+        },
+    ],
+    argTypes: {
+        view: {
+            control: 'select',
+            options: ['avatar', 'oneline', 'twolines', 'threelines'],
+            description: 'Display mode for the person component',
+            table: {
+                defaultValue: { summary: 'oneline' },
+            },
+        },
+        avatarSize: {
+            control: 'select',
+            options: ['small', 'medium', 'large', 'extra-large'],
+            description: 'Size of the avatar',
+            table: {
+                defaultValue: { summary: 'medium' },
+            },
+        },
+        showPresence: {
+            control: 'boolean',
+            description: 'Show presence badge on avatar',
+            table: {
+                defaultValue: { summary: 'false' },
+            },
+        },
+        fetchImage: {
+            control: 'boolean',
+            description: 'Fetch user photo from Microsoft Graph',
+            table: {
+                defaultValue: { summary: 'true' },
+            },
+        },
+        userId: {
+            control: 'text',
+            description: 'User ID to fetch from Microsoft Graph',
+        },
+        userPrincipalName: {
+            control: 'text',
+            description: 'User Principal Name (UPN) to fetch from Microsoft Graph',
+        },
     },
-  ],
-  argTypes: {
-    view: {
-      control: 'select',
-      options: ['avatar', 'oneline', 'twolines', 'threelines'],
-      description: 'Display mode for the person component',
-      table: {
-        defaultValue: { summary: 'oneline' },
-      },
-    },
-    avatarSize: {
-      control: 'select',
-      options: ['small', 'medium', 'large', 'extra-large'],
-      description: 'Size of the avatar',
-      table: {
-        defaultValue: { summary: 'medium' },
-      },
-    },
-    showPresence: {
-      control: 'boolean',
-      description: 'Show presence badge on avatar',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
-    fetchImage: {
-      control: 'boolean',
-      description: 'Fetch user photo from Microsoft Graph',
-      table: {
-        defaultValue: { summary: 'true' },
-      },
-    },
-    userId: {
-      control: 'text',
-      description: 'User ID to fetch from Microsoft Graph',
-    },
-    userPrincipalName: {
-      control: 'text',
-      description: 'User Principal Name (UPN) to fetch from Microsoft Graph',
-    },
-  },
 } satisfies Meta<typeof Person>;
 
 export default meta;
@@ -85,152 +85,152 @@ type Story = StoryObj<typeof meta>;
  * Default person view with one line of text (name only)
  */
 export const Default: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'oneline',
-    showPresence: false,
-    avatarSize: 'medium',
-    fetchImage: true,
-  },
+    args: {
+        userId: 'test-user',
+        view: 'oneline',
+        showPresence: false,
+        avatarSize: 'medium',
+        fetchImage: true,
+    },
 };
 
 /**
  * Avatar only - no text displayed
  */
 export const AvatarOnly: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'avatar',
-    avatarSize: 'large',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'avatar',
+        avatarSize: 'large',
+    },
 };
 
 /**
  * One line view - displays name only
  */
 export const OneLine: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'oneline',
-    avatarSize: 'medium',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'oneline',
+        avatarSize: 'medium',
+    },
 };
 
 /**
  * Two lines view - displays name and job title
  */
 export const TwoLines: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'twolines',
-    avatarSize: 'medium',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        avatarSize: 'medium',
+    },
 };
 
 /**
  * Three lines view - displays name, job title, and department
  */
 export const ThreeLines: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'threelines',
-    avatarSize: 'medium',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'threelines',
+        avatarSize: 'medium',
+    },
 };
 
 /**
  * With presence badge showing user availability
  */
 export const WithPresence: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'twolines',
-    showPresence: true,
-    avatarSize: 'medium',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        showPresence: true,
+        avatarSize: 'medium',
+    },
 };
 
 /**
  * Small avatar size
  */
 export const SmallSize: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'oneline',
-    avatarSize: 'small',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'oneline',
+        avatarSize: 'small',
+    },
 };
 
 /**
  * Large avatar size
  */
 export const LargeSize: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'twolines',
-    avatarSize: 'large',
-  },
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        avatarSize: 'large',
+    },
 };
 
 /**
  * Extra large avatar size
  */
 export const ExtraLargeSize: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'threelines',
-    avatarSize: 'extra-large',
-    showPresence: true,
-  },
+    args: {
+        userId: 'test-user',
+        view: 'threelines',
+        avatarSize: 'extra-large',
+        showPresence: true,
+    },
 };
 
 /**
  * Using personDetails prop to provide data directly (no Graph fetch)
  */
 export const WithDirectData: Story = {
-  args: {
-    personDetails: {
-      displayName: 'John Doe',
-      jobTitle: 'Software Engineer',
-      department: 'Engineering',
-      mail: 'john.doe@contoso.com',
+    args: {
+        personDetails: {
+            displayName: 'John Doe',
+            jobTitle: 'Software Engineer',
+            department: 'Engineering',
+            mail: 'john.doe@contoso.com',
+        },
+        view: 'threelines',
+        avatarSize: 'medium',
     },
-    view: 'threelines',
-    avatarSize: 'medium',
-  },
 };
 
 /**
  * Clickable person card
  */
 export const Clickable: Story = {
-  args: {
-    userId: 'test-user',
-    view: 'twolines',
-    avatarSize: 'medium',
-    onClick: (person) => {
-      alert(`Clicked on ${person.displayName}`);
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        avatarSize: 'medium',
+        onClick: (person) => {
+            alert(`Clicked on ${person.displayName}`);
+        },
     },
-  },
 };
 
 /**
  * Loading state
  */
 export const Loading: Story = {
-  decorators: [
-    (Story) => {
-      // Use a provider that's not signed in to show loading
-      const loadingProvider = new MockProvider({ autoSignIn: false });
-      return (
-        <GraphProvider provider={loadingProvider}>
-          <Story />
-        </GraphProvider>
-      );
+    decorators: [
+        (Story) => {
+            // Use a provider that's not signed in to show loading
+            const loadingProvider = new MockProvider({ autoSignIn: false });
+            return (
+                <GraphProvider provider={loadingProvider}>
+                    <Story />
+                </GraphProvider>
+            );
+        },
+    ],
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
     },
-  ],
-  args: {
-    userId: 'test-user',
-    view: 'twolines',
-  },
 };
