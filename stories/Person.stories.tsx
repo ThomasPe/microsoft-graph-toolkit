@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import { Person } from '../src/components/Person';
 import { GraphProvider } from '../src/providers/ProviderContext';

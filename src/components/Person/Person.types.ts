@@ -2,6 +2,7 @@
  * Person component types
  */
 
+import type { CSSProperties } from 'react';
 import { User } from '@microsoft/microsoft-graph-types';
 
 export type PersonView = 'avatar' | 'oneline' | 'twolines' | 'threelines';
@@ -46,5 +47,5 @@ export interface PersonProps {
 
   // Styling
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }

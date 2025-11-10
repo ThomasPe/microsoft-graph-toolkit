@@ -1,7 +1,6 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 import React from 'react';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
-import theme from './theme';
 
 const preview: Preview = {
   parameters: {
@@ -11,9 +10,6 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
-    },
-    docs: {
-      theme,
     },
     options: {
       storySort: {
