@@ -1,21 +1,17 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-# Tests are executed and coverage reports are emitted as to the action summary
-# A dependent workflow which uses workflow_run as a trigger reads the archived outputs and emits comments to the PR triggering this build
-
 name: Build and Test
 
 on:
   push:
-    branches: [main, release/**, next/**]
+    branches: [main]
   pull_request:
-    branches: [main, release/**, next/**]
+    branches: [main]
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,49 +20,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install -g lerna
-      - name: Install node_modules
-        run: yarn
-      - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps chromium
-      - run: node scripts/setVersion.js --next
-      - run: yarn build
-      - run: yarn lint
-      - run: yarn test
+          cache: "npm"
 
-      - name: Archive test results
-        uses: actions/upload-artifact@v4 # upload test results
-        if: always() # run this step even if previous step failed
-        with:
-          name: test-results-${{ matrix.node-version }}
-          path: testResults/junit.xml
-      - name: Archive coverage artifacts
-        uses: actions/upload-artifact@v4 # upload coverage rartifacts
-        if: always() # run this step even if previous step failed
-        with:
-          name: coverage-${{ matrix.node-version }}
-          path: coverage/
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Code Coverage Summary Report
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          filename: coverage/cobertura-coverage.xml
-          badge: true
-          format: 'markdown'
-          output: 'both'
+      - name: Type check
+        run: npm run type-check
 
-      - name: Write to Job Summary
-        run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+      - name: Lint
+        run: npm run lint
 
-  # The check-build-matrix returns success if all matrix jobs in build are successful; otherwise, it returns a failure.
-  # Use this as a PR status check for GitHub Policy Service instead of individual matrix entry checks.
+      - name: Build
+        run: npm run build
+
+      - name: Test
+        run: npm run test
+
+  # Success check for branch protection rules
   check-build-matrix:
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-and-test
     if: always()
     steps:
       - name: All build matrix options are successful
@@ -75,21 +54,3 @@ jobs:
       - name: One or more build matrix options failed
         if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
-
-  sonarcloud:
-    name: SonarCloud Analysis
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: coverage-*
-          merge-multiple: true
-          path: coverage/
-
-      - name: Run sonar cloud analysis
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
