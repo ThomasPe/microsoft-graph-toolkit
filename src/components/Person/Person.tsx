@@ -58,9 +58,13 @@ export const Person: React.FC<PersonProps> = ({
     view = 'oneline',
     showPresence = false,
     avatarSize = 'medium',
+    textAlignment,
+    textPosition,
+    numericSize,
     fetchImage = true,
     onClick,
     className,
+    style,
 }) => {
     // Fetch data if not provided directly
     const { user, presence, photoUrl, loading } = usePersonData({
@@ -75,9 +79,12 @@ export const Person: React.FC<PersonProps> = ({
     if (loading) {
         return (
             <Persona
-                size={mapSize(avatarSize)}
+                size={(numericSize ?? mapSize(avatarSize)) as any}
                 name="Loading..."
+                textAlignment={textAlignment}
+                textPosition={textPosition}
                 className={className}
+                style={style}
             />
         );
     }
@@ -91,13 +98,16 @@ export const Person: React.FC<PersonProps> = ({
 
     // Build persona props based on view
     const personaProps: any = {
-        size: mapSize(avatarSize),
+        size: (numericSize ?? mapSize(avatarSize)) as any,
         name: displayName,
+        textAlignment,
+        textPosition,
         avatar: {
             image: photoUrl ? { src: photoUrl } : undefined,
             initials: photoUrl ? undefined : initials,
         },
         className,
+        style,
     };
 
     if (showPresence && presence) {

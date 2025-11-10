@@ -6,6 +6,8 @@ import { User } from '@microsoft/microsoft-graph-types';
 
 export type PersonView = 'avatar' | 'oneline' | 'twolines' | 'threelines';
 export type PersonSize = 'small' | 'medium' | 'large' | 'extra-large';
+export type PersonTextAlignment = 'start' | 'center';
+export type PersonTextPosition = 'before' | 'after' | 'below';
 
 export interface PersonDetails {
     displayName?: string;
@@ -31,6 +33,11 @@ export interface PersonProps {
     showPresence?: boolean;
     avatarSize?: PersonSize;
 
+    // Persona layout options
+    textAlignment?: PersonTextAlignment;
+    textPosition?: PersonTextPosition;
+    numericSize?: number;
+
     // Fetching options
     fetchImage?: boolean;
 
@@ -39,4 +46,5 @@ export interface PersonProps {
 
     // Styling
     className?: string;
+    style?: React.CSSProperties;
 }

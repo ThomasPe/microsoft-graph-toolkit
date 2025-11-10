@@ -10,9 +10,12 @@ import { MockProvider } from '../src/providers/MockProvider';
  * Features:
  * - Multiple view modes (avatar, oneline, twolines, threelines)
  * - Presence badge support
- * - Customizable avatar size
+ * - Customizable avatar size (preset or numeric)
  * - Photo loading from Microsoft Graph
  * - Mock provider for development/testing
+ * - Text alignment options (start, center)
+ * - Text position options (before, after, below)
+ * - Full Fluent UI Persona configuration support
  */
 const meta = {
     title: 'Components/Person',
@@ -51,6 +54,29 @@ const meta = {
             description: 'Size of the avatar',
             table: {
                 defaultValue: { summary: 'medium' },
+            },
+        },
+        numericSize: {
+            control: 'number',
+            description: 'Numeric size of the avatar (overrides avatarSize if provided)',
+            table: {
+                defaultValue: { summary: 'undefined' },
+            },
+        },
+        textAlignment: {
+            control: 'radio',
+            options: ['start', 'center'],
+            description: 'Horizontal alignment of the text',
+            table: {
+                defaultValue: { summary: 'start' },
+            },
+        },
+        textPosition: {
+            control: 'radio',
+            options: ['before', 'after', 'below'],
+            description: 'Position of text relative to avatar',
+            table: {
+                defaultValue: { summary: 'after' },
             },
         },
         showPresence: {
@@ -232,5 +258,80 @@ export const Loading: Story = {
     args: {
         userId: 'test-user',
         view: 'twolines',
+    },
+};
+
+/**
+ * Text centered alignment
+ */
+export const TextCentered: Story = {
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        avatarSize: 'large',
+        textAlignment: 'center',
+    },
+};
+
+/**
+ * Text positioned before avatar
+ */
+export const TextBefore: Story = {
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        avatarSize: 'medium',
+        textPosition: 'before',
+    },
+};
+
+/**
+ * Text positioned below avatar
+ */
+export const TextBelow: Story = {
+    args: {
+        userId: 'test-user',
+        view: 'threelines',
+        avatarSize: 'large',
+        textPosition: 'below',
+        textAlignment: 'center',
+    },
+};
+
+/**
+ * Custom numeric size
+ */
+export const CustomNumericSize: Story = {
+    args: {
+        userId: 'test-user',
+        view: 'twolines',
+        numericSize: 72,
+        showPresence: true,
+    },
+};
+
+/**
+ * Inline layout with text before
+ */
+export const InlineReversed: Story = {
+    args: {
+        userId: 'test-user',
+        view: 'oneline',
+        avatarSize: 'small',
+        textPosition: 'before',
+    },
+};
+
+/**
+ * Card-like layout with centered text below
+ */
+export const CardLayout: Story = {
+    args: {
+        userId: 'test-user',
+        view: 'threelines',
+        avatarSize: 'extra-large',
+        textPosition: 'below',
+        textAlignment: 'center',
+        showPresence: true,
     },
 };
