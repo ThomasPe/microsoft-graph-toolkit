@@ -2,12 +2,12 @@
 name: Bug report
 about: Create a report to help us improve
 title: "[BUG]"
-labels: 'Needs: Triage :mag:, bug'
+labels: 'bug'
 assignees: ''
 
 ---
 
-<!-- Please make sure you are posting an issue pertaining to the Microsoft Graph Toolkit. -->
+<!-- Please make sure you are posting an issue pertaining to Graph Toolkit React. -->
 <!-- ISSUES MISSING IMPORTANT INFORMATION MAY BE CLOSED WITHOUT INVESTIGATION. -->
 
 **Describe the bug**

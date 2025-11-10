@@ -1,5 +1,5 @@
 <!-- Review contributing guidelines before creating PRs -->
-<!-- https://github.com/microsoftgraph/microsoft-graph-toolkit/blob/main/CONTRIBUTING.md -->
+<!-- https://github.com/ThomasPe/microsoft-graph-toolkit/blob/main/CONTRIBUTING.md -->
 
 Closes # <!-- REQUIRED: Add the issue number (ex: #12) so the issue is automatically closed when PR is merged -->
 
@@ -17,13 +17,11 @@ Closes # <!-- REQUIRED: Add the issue number (ex: #12) so the issue is automatic
 ### Description of the changes
 
 ### PR checklist
-- [ ] Project builds (`yarn build`) and changes have been tested in at least two supported browsers (Edge + non-Chromium based browser)
+- [ ] Project builds (`npm run build`) and changes have been tested in supported browsers
 - [ ] All public APIs (classes, methods, etc) have been documented following the jsdoc syntax
-- [ ] [Stories](https://github.com/microsoftgraph/microsoft-graph-toolkit/wiki/Storybook#writing-stories) have been added and existing stories have been tested
-- [ ] Added appropriate [documentation](https://github.com/microsoftgraph/microsoft-graph-toolkit/wiki/Documentation). Docs PR: <!-- Link to docs PR here -->
-<!-- Please uncomment if any Accessibility related changes -->
-<!-- - [ ] Accessibility tested and approved-->
-- [ ] License header has been added to all new source files (`yarn setLicense`)
+- [ ] Storybook stories have been added/updated where appropriate
+- [ ] Added appropriate documentation if needed
+- [ ] License header has been added to all new source files
 - [ ] Contains **NO** breaking changes
 
 ### Other information
