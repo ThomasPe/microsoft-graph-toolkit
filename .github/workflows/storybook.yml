@@ -1,10 +1,4 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
-
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Deploy main storybook
+name: Deploy Storybook to GitHub Pages
 
 on:
   push:
@@ -14,38 +8,31 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    if: github.repository == 'microsoftgraph/microsoft-graph-toolkit'
-
-    strategy:
-      matrix:
-        node-version: [20.x]
 
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "20.x"
+          cache: "npm"
 
-      - name: Build 🛠
-        run: |
-          npm install -g yarn lerna
-          yarn
-          yarn build
-          yarn storybook:build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Deploy mgt.dev/next 🚀
+      - name: Build library
+        run: npm run build
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
           folder: storybook-static
-          target-folder: next
-          clean-exclude: |
-            sample
-            pr
-            v3
-            mgt-chat
+          clean: true
           token: ${{ secrets.GITHUB_TOKEN }}

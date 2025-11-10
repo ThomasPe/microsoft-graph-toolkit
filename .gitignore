@@ -1,52 +1,28 @@
+# Build outputs
 dist/
-www/
-lib/
-assets/mgt.storybook.js
-assets/mgt.preview.storybook.js
+storybook-static/
+*.tsbuildinfo
+coverage/
 
+# Logs
+*.log
+log.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
 *~
 *.sw[mnpcod]
-*.log
-*.lock
-# explicitly allow yarn lock to facilitate pipeline caching of node_modules
-!yarn.lock
-*.tmp
-*.tmp.*
-log.txt
-*.sublime-project
-*.sublime-workspace
 
-.stencil/
+# IDEs
 .idea/
 .vscode/
 !.vscode/extensions.json
 !.vscode/settings.json
-.sass-cache/
-.versions/
+
+# Dependencies
 node_modules/
-$RECYCLE.BIN/
-.cache/
-
-.DS_Store
-Thumbs.db
-UserInterfaceState.xcuserstate
-.env
-
-# testing
-coverage/
-*.tgz
-testResults/
-
-*-css.ts
-*.tsbuildinfo
-package-lock.json
-
-# storybook
-storybook-static/
-custom-elements.json
-workbench.html
-
-# modern yarn using zero-install
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -54,4 +30,22 @@ workbench.html
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Temp files
+*.tmp
+*.tmp.*
+$RECYCLE.BIN/
+.cache/
+
+# Environment
+.env
+.env.local
+
+# Testing
+testResults/
+
+# Lock files (using npm)
+package-lock.json
+yarn.lock
+
 

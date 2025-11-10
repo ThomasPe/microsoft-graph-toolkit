@@ -1,3 +1,0 @@
-# this has to use yarn otherwise it will not work due to a permission issue
-yarn run prettier:check
-yarn run lint

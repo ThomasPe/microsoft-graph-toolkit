@@ -31,6 +31,6 @@ export default create({
   // inputTextColor: 'black',
   // inputBorderRadius: 4,
 
-  brandTitle: 'Microsoft Graph Toolkit Playground',
-  brandUrl: 'https://aka.ms/mgt'
+  brandTitle: 'Graph Toolkit React',
+  brandUrl: 'https://github.com/ThomasPe/microsoft-graph-toolkit'
 });
