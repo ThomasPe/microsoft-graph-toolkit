@@ -44,8 +44,3 @@ $RECYCLE.BIN/
 # Testing
 testResults/
 
-# Lock files (using npm)
-package-lock.json
-yarn.lock
-
-
