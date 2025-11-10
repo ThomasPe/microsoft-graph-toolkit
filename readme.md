@@ -21,7 +21,17 @@
 
 ## 🎯 Project Vision
 
-This project reimagines the Microsoft Graph Toolkit as a **modern, React-first component library** built on top of Fluent UI. The goal is to create a focused, maintainable package that leverages the official Microsoft design system while providing seamless integration with Microsoft Graph.
+This project reimagines the Microsoft Graph Toolkit as a **modern, React-first component library** built on top of Fluent UI. After Microsoft deprecated the original Microsoft Graph Toolkit, this fork was created to continue providing React developers with high-quality components for Microsoft Graph integration.
+
+### Why This Fork Exists
+
+The original Microsoft Graph Toolkit has been **deprecated by Microsoft**. Rather than let this valuable resource disappear, this fork takes the opportunity to reimagine the toolkit with a focused, modern approach:
+
+1. **React-First Architecture**: Built specifically for React applications, not framework-agnostic web components
+2. **Fluent UI Native**: Leverages official Fluent UI v9 components instead of custom implementations
+3. **Simplified Maintenance**: Single package instead of a complex 10+ package monorepo
+4. **Modern Tooling**: TypeScript 5, Vite, Vitest, and Storybook 7
+5. **Community Driven**: Open source development focused on developer experience
 
 ### Key Principles
 
@@ -31,14 +41,14 @@ This project reimagines the Microsoft Graph Toolkit as a **modern, React-first c
 - **Modern Stack**: TypeScript 5, Vite, Vitest, and Storybook 7
 - **Developer Experience**: Simple API, excellent TypeScript support, comprehensive documentation
 
-### Why This Fork?
+### Design Philosophy
 
-The original Microsoft Graph Toolkit is excellent but serves a broader audience with framework-agnostic web components. This fork takes a different approach:
+Instead of maintaining the original web component approach, this fork:
 
-1. **Leverages Fluent UI**: Instead of building custom Avatar/Text components, we use the official `Persona` component from Fluent UI
-2. **Simplified Architecture**: Single package instead of 10+ packages in a Lerna monorepo
-3. **React Optimization**: Components are designed for React's patterns (hooks, context) from the ground up
-4. **Faster Iteration**: Smaller codebase means quicker development and easier maintenance
+1. **Leverages Fluent UI**: Uses the official `Persona` component from Fluent UI instead of custom Avatar/Text components
+2. **Embraces React Patterns**: Components designed for React's patterns (hooks, context) from the ground up
+3. **Reduces Complexity**: Smaller codebase enables quicker development and easier maintenance
+4. **Focuses on Quality**: Fewer components, better implementation, comprehensive documentation
 
 ## 📦 Package
 
@@ -145,10 +155,12 @@ class MyAuthProvider implements IProvider {
 
 Explore all components interactively in our Storybook documentation:
 
-**[View Storybook →](#)** _(Deployed to GitHub Pages on every main branch update)_
+**[View Storybook →](https://thomaspe.github.io/microsoft-graph-toolkit/)** _(Deployed to GitHub Pages on every main branch update)_
 
 Run locally:
 ```bash
+npm run storybook
+```
 npm run storybook
 ```
 
@@ -232,7 +244,7 @@ stories/
 
 ## 🤝 Contribute
 
-This is an **experimental fork** exploring a React-first approach to Microsoft Graph components. Contributions are welcome!
+After the deprecation of the original Microsoft Graph Toolkit, this **community-driven fork** continues to provide React developers with components for Microsoft Graph. Contributions are welcome!
 
 ### Guidelines
 
@@ -248,21 +260,24 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 MIT License - see [LICENSE](LICENSE) for details.
 
-This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit) by Microsoft, which is also MIT licensed.
+This project is a fork of [microsoft-graph-toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit) by Microsoft (now deprecated), which was also MIT licensed.
 
 ## 🙏 Acknowledgments
 
-- **Microsoft Graph Toolkit Team**: For the original project and inspiration
+- **Microsoft Graph Toolkit Team**: For creating the original toolkit and making it open source before deprecation
 - **Fluent UI Team**: For the excellent React component library
 - **Microsoft Graph**: For the powerful API that makes this all possible
+- **Community Contributors**: For keeping this project alive and improving it
 
 ---
 
 **Note**: This is an alpha release under active development. APIs may change. Not recommended for production use yet.
 
+> ⚠️ **About the Original Project**: The original Microsoft Graph Toolkit by Microsoft has been deprecated. This fork is a community effort to continue providing React components for Microsoft Graph integration with a modern, focused approach.
+
 ## 🔗 Links
 
-- **Original Project**: [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
+- **Original Project** (deprecated): [Microsoft Graph Toolkit](https://github.com/microsoftgraph/microsoft-graph-toolkit)
 - **Fluent UI**: [react.fluentui.dev](https://react.fluentui.dev/)
 - **Microsoft Graph**: [graph.microsoft.com](https://graph.microsoft.com)
 
