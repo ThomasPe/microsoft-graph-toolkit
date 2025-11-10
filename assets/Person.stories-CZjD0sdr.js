@@ -83,8 +83,8 @@ var oa=Object.defineProperty;var na=(r,e,t)=>e in r?oa(r,e,{enumerable:!0,config
       autoSignIn: false
     });
     return <GraphProvider provider={loadingProvider}>
-                    <Story />
-                </GraphProvider>;
+          <Story />
+        </GraphProvider>;
   }],
   args: {
     userId: 'test-user',
